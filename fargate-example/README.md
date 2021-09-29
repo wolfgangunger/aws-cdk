@@ -2,6 +2,23 @@
 # CDK Fargate Example
 
 
+to run the example
+
+aws configure
+
+start venv ( see below)
+ 
+pip install -r requirements.txt
+
+cdk bootstrap
+
+cdk synth
+
+cdk diff
+
+cdk deploy
+
+
 To manually create a virtualenv on MacOS and Linux:
 
 ```

@@ -6,17 +6,17 @@ with open("README.md") as fp:
 
 
 setuptools.setup(
-    name="unw",
+    name="fargate-example",
     version="0.0.1",
 
-    description="A sample CDK Python app",
+    description="A sample CDK Python app with Fargate Service and ALB",
     long_description=long_description,
     long_description_content_type="text/markdown",
 
-    author="author",
+    author="ungerw",
 
-    package_dir={"": "unw"},
-    packages=setuptools.find_packages(where="unw"),
+    package_dir={"": "ecs"},
+    packages=setuptools.find_packages(where="ecs"),
 
     install_requires=[
         "aws-cdk.core==1.123.0",
