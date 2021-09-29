@@ -1,0 +1,362 @@
+{
+  "Resources": {
+    "myRestAPI1CFCD5F1": {
+      "Type": "AWS::ApiGateway::RestApi",
+      "Properties": {
+        "Name": "myRestAPI"
+      },
+      "Metadata": {
+        "aws:cdk:path": "application/myRestAPI/Resource"
+      }
+    },
+    "myRestAPICloudWatchRoleA16753D6": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "apigateway.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "application/myRestAPI/CloudWatchRole/Resource"
+      }
+    },
+    "myRestAPIAccountDBA98EA4": {
+      "Type": "AWS::ApiGateway::Account",
+      "Properties": {
+        "CloudWatchRoleArn": {
+          "Fn::GetAtt": [
+            "myRestAPICloudWatchRoleA16753D6",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "myRestAPI1CFCD5F1"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "application/myRestAPI/Account"
+      }
+    },
+    "myRestAPIDeployment418B3A7Cd197864c538a042a0fdba103bceaef23": {
+      "Type": "AWS::ApiGateway::Deployment",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "myRestAPI1CFCD5F1"
+        },
+        "Description": "Automatically created by the RestApi construct"
+      },
+      "DependsOn": [
+        "myRestAPIproxyANY2A569DAF",
+        "myRestAPIproxy9159ABD3",
+        "myRestAPIANYD4ED0177"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "application/myRestAPI/Deployment/Resource"
+      }
+    },
+    "myRestAPIDeploymentStageprod07B89AAE": {
+      "Type": "AWS::ApiGateway::Stage",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "myRestAPI1CFCD5F1"
+        },
+        "DeploymentId": {
+          "Ref": "myRestAPIDeployment418B3A7Cd197864c538a042a0fdba103bceaef23"
+        },
+        "StageName": "prod"
+      },
+      "Metadata": {
+        "aws:cdk:path": "application/myRestAPI/DeploymentStage.prod/Resource"
+      }
+    },
+    "myRestAPIproxy9159ABD3": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "myRestAPI1CFCD5F1",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "{proxy+}",
+        "RestApiId": {
+          "Ref": "myRestAPI1CFCD5F1"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "application/myRestAPI/Default/{proxy+}/Resource"
+      }
+    },
+    "myRestAPIproxyANYApiPermissionapplicationmyRestAPI2B5A1BAEANYproxy09C84504": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::ImportValue": "infrastructure:ExportsOutputFnGetAttmyMainFunction3647C7FEArnE811CF25"
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:eu-west-2:",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "myRestAPI1CFCD5F1"
+              },
+              "/",
+              {
+                "Ref": "myRestAPIDeploymentStageprod07B89AAE"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "application/myRestAPI/Default/{proxy+}/ANY/ApiPermission.applicationmyRestAPI2B5A1BAE.ANY..{proxy+}"
+      }
+    },
+    "myRestAPIproxyANYApiPermissionTestapplicationmyRestAPI2B5A1BAEANYproxy51A28E2E": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::ImportValue": "infrastructure:ExportsOutputFnGetAttmyMainFunction3647C7FEArnE811CF25"
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:eu-west-2:",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "myRestAPI1CFCD5F1"
+              },
+              "/test-invoke-stage/*/*"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "application/myRestAPI/Default/{proxy+}/ANY/ApiPermission.Test.applicationmyRestAPI2B5A1BAE.ANY..{proxy+}"
+      }
+    },
+    "myRestAPIproxyANY2A569DAF": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "ANY",
+        "ResourceId": {
+          "Ref": "myRestAPIproxy9159ABD3"
+        },
+        "RestApiId": {
+          "Ref": "myRestAPI1CFCD5F1"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:eu-west-2:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::ImportValue": "infrastructure:ExportsOutputFnGetAttmyMainFunction3647C7FEArnE811CF25"
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "application/myRestAPI/Default/{proxy+}/ANY/Resource"
+      }
+    },
+    "myRestAPIANYApiPermissionapplicationmyRestAPI2B5A1BAEANYAD8291A9": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::ImportValue": "infrastructure:ExportsOutputFnGetAttmyMainFunction3647C7FEArnE811CF25"
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:eu-west-2:",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "myRestAPI1CFCD5F1"
+              },
+              "/",
+              {
+                "Ref": "myRestAPIDeploymentStageprod07B89AAE"
+              },
+              "/*/"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "application/myRestAPI/Default/ANY/ApiPermission.applicationmyRestAPI2B5A1BAE.ANY.."
+      }
+    },
+    "myRestAPIANYApiPermissionTestapplicationmyRestAPI2B5A1BAEANY6DAE51A1": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::ImportValue": "infrastructure:ExportsOutputFnGetAttmyMainFunction3647C7FEArnE811CF25"
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:eu-west-2:",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "myRestAPI1CFCD5F1"
+              },
+              "/test-invoke-stage/*/"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "application/myRestAPI/Default/ANY/ApiPermission.Test.applicationmyRestAPI2B5A1BAE.ANY.."
+      }
+    },
+    "myRestAPIANYD4ED0177": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "ANY",
+        "ResourceId": {
+          "Fn::GetAtt": [
+            "myRestAPI1CFCD5F1",
+            "RootResourceId"
+          ]
+        },
+        "RestApiId": {
+          "Ref": "myRestAPI1CFCD5F1"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:eu-west-2:lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::ImportValue": "infrastructure:ExportsOutputFnGetAttmyMainFunction3647C7FEArnE811CF25"
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "application/myRestAPI/Default/ANY/Resource"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/01OQU7DMBB8S+/bLQEu3CjlCCIKL1icpbiNvZG9Voks/x2nIVJPOzOa2ZkGm/tHvNs80yVuTX/eZSOBMX8qmTMcvv1H0jEpHMRHDcnorHUcJQXDBeZUptEeSflCE+Y3cl89VYPuR/vvXeHeGEle4ZXHQSbH/vrshtXSI8/aAtaaF4oMbZDfaVVuR8A764/0s7SgApYc5k6GxVdvgeG6CytvOTgboxVfCrRTTfjdAz5hszlFa7ehLrSOsVvuHxjnf/UgAQAA"
+      },
+      "Metadata": {
+        "aws:cdk:path": "application/CDKMetadata/Default"
+      }
+    }
+  },
+  "Outputs": {
+    "myRestAPIEndpointCF6D07DA": {
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "https://",
+            {
+              "Ref": "myRestAPI1CFCD5F1"
+            },
+            ".execute-api.eu-west-2.",
+            {
+              "Ref": "AWS::URLSuffix"
+            },
+            "/",
+            {
+              "Ref": "myRestAPIDeploymentStageprod07B89AAE"
+            },
+            "/"
+          ]
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,444 @@
+{
+  "Resources": {
+    "submitLambdaServiceRole576DCA8F": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "LambdaStack/submitLambda/ServiceRole/Resource"
+      }
+    },
+    "submitLambda3C32AFD4": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "AssetParameters188d3c48de91ae43d676cea0a1e1ac432ab4fa68383a5dc8d33f83aa1de6da5dS3Bucket69DE0B9D"
+          },
+          "S3Key": {
+            "Fn::Join": [
+              "",
+              [
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters188d3c48de91ae43d676cea0a1e1ac432ab4fa68383a5dc8d33f83aa1de6da5dS3VersionKeyA9A44B3C"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters188d3c48de91ae43d676cea0a1e1ac432ab4fa68383a5dc8d33f83aa1de6da5dS3VersionKeyA9A44B3C"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "submitLambdaServiceRole576DCA8F",
+            "Arn"
+          ]
+        },
+        "Handler": "lambda_function.lambda_handler",
+        "Runtime": "python3.9"
+      },
+      "DependsOn": [
+        "submitLambdaServiceRole576DCA8F"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "LambdaStack/submitLambda/Resource",
+        "aws:asset:path": "asset.188d3c48de91ae43d676cea0a1e1ac432ab4fa68383a5dc8d33f83aa1de6da5d",
+        "aws:asset:property": "Code"
+      }
+    },
+    "statusLambdaServiceRoleD1132168": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "LambdaStack/statusLambda/ServiceRole/Resource"
+      }
+    },
+    "statusLambdaCF47B86D": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "AssetParameters6f8df8000b152b418e30cf6be736036c2ab07aaac49a736df5551654ad0783daS3Bucket339CA4FF"
+          },
+          "S3Key": {
+            "Fn::Join": [
+              "",
+              [
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters6f8df8000b152b418e30cf6be736036c2ab07aaac49a736df5551654ad0783daS3VersionKey86AA32AC"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters6f8df8000b152b418e30cf6be736036c2ab07aaac49a736df5551654ad0783daS3VersionKey86AA32AC"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "statusLambdaServiceRoleD1132168",
+            "Arn"
+          ]
+        },
+        "Handler": "lambda_function.lambda_handler",
+        "Runtime": "python3.9"
+      },
+      "DependsOn": [
+        "statusLambdaServiceRoleD1132168"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "LambdaStack/statusLambda/Resource",
+        "aws:asset:path": "asset.6f8df8000b152b418e30cf6be736036c2ab07aaac49a736df5551654ad0783da",
+        "aws:asset:property": "Code"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/zWNwQ6CMBBEv4V7WUS8eFNMPBP8grWsWIE26W5jTNN/l2I8zZvJ7E4N9f4Au+KEby71MFVRO08Qb4J6UmdmkhVHY0d1cZbFBy3q8rAdelxIyGfTE7vgNWVeW4MR42xS+WWccbkPCPEarM5x7vw5KYMLxN7N22nWpLgpMc8ybOurhzboiaRFppRU95Gns1UDR6iLFxtT+mDFLAT9T7+MPc0J0wAAAA=="
+      },
+      "Metadata": {
+        "aws:cdk:path": "LambdaStack/CDKMetadata/Default"
+      },
+      "Condition": "CDKMetadataAvailable"
+    }
+  },
+  "Parameters": {
+    "AssetParameters188d3c48de91ae43d676cea0a1e1ac432ab4fa68383a5dc8d33f83aa1de6da5dS3Bucket69DE0B9D": {
+      "Type": "String",
+      "Description": "S3 bucket for asset \"188d3c48de91ae43d676cea0a1e1ac432ab4fa68383a5dc8d33f83aa1de6da5d\""
+    },
+    "AssetParameters188d3c48de91ae43d676cea0a1e1ac432ab4fa68383a5dc8d33f83aa1de6da5dS3VersionKeyA9A44B3C": {
+      "Type": "String",
+      "Description": "S3 key for asset version \"188d3c48de91ae43d676cea0a1e1ac432ab4fa68383a5dc8d33f83aa1de6da5d\""
+    },
+    "AssetParameters188d3c48de91ae43d676cea0a1e1ac432ab4fa68383a5dc8d33f83aa1de6da5dArtifactHashCEE65C06": {
+      "Type": "String",
+      "Description": "Artifact hash for asset \"188d3c48de91ae43d676cea0a1e1ac432ab4fa68383a5dc8d33f83aa1de6da5d\""
+    },
+    "AssetParameters6f8df8000b152b418e30cf6be736036c2ab07aaac49a736df5551654ad0783daS3Bucket339CA4FF": {
+      "Type": "String",
+      "Description": "S3 bucket for asset \"6f8df8000b152b418e30cf6be736036c2ab07aaac49a736df5551654ad0783da\""
+    },
+    "AssetParameters6f8df8000b152b418e30cf6be736036c2ab07aaac49a736df5551654ad0783daS3VersionKey86AA32AC": {
+      "Type": "String",
+      "Description": "S3 key for asset version \"6f8df8000b152b418e30cf6be736036c2ab07aaac49a736df5551654ad0783da\""
+    },
+    "AssetParameters6f8df8000b152b418e30cf6be736036c2ab07aaac49a736df5551654ad0783daArtifactHashE2BA5D37": {
+      "Type": "String",
+      "Description": "Artifact hash for asset \"6f8df8000b152b418e30cf6be736036c2ab07aaac49a736df5551654ad0783da\""
+    }
+  },
+  "Conditions": {
+    "CDKMetadataAvailable": {
+      "Fn::Or": [
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "af-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ca-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-northwest-1"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-3"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "me-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "sa-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-2"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-2"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Outputs": {
+    "ExportsOutputFnGetAttsubmitLambda3C32AFD4Arn5355D845": {
+      "Value": {
+        "Fn::GetAtt": [
+          "submitLambda3C32AFD4",
+          "Arn"
+        ]
+      },
+      "Export": {
+        "Name": "LambdaStack:ExportsOutputFnGetAttsubmitLambda3C32AFD4Arn5355D845"
+      }
+    },
+    "ExportsOutputFnGetAttstatusLambdaCF47B86DArn9763F2A5": {
+      "Value": {
+        "Fn::GetAtt": [
+          "statusLambdaCF47B86D",
+          "Arn"
+        ]
+      },
+      "Export": {
+        "Name": "LambdaStack:ExportsOutputFnGetAttstatusLambdaCF47B86DArn9763F2A5"
+      }
+    }
+  }
+}

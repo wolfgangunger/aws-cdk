@@ -1,0 +1,82 @@
+{
+  "Resources": {
+    "myMainFunctionServiceRole1AF9B2E8": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "infrastructure/myMainFunction/ServiceRole/Resource"
+      }
+    },
+    "myMainFunction3647C7FE": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "ZipFile": "def main(event, context)\n  print('hello, world')"
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "myMainFunctionServiceRole1AF9B2E8",
+            "Arn"
+          ]
+        },
+        "Handler": "index.main",
+        "Runtime": "python3.7"
+      },
+      "DependsOn": [
+        "myMainFunctionServiceRole1AF9B2E8"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "infrastructure/myMainFunction/Resource"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/zWLQQrCMBAA39J7ujXqxZtQ8CzxBes2YmyzC8kGkZC/axVPM4cZC3a7h013xGfuaZqHSpI81IsizWYUzpoKqRlv7HyWksg3s7Z1wXidEOqpMGkQXpO/NxMwQnWy+O/5YWvNnF96Fx52cADbPXIIfSqsIXpwP74Bxj7l6I4AAAA="
+      },
+      "Metadata": {
+        "aws:cdk:path": "infrastructure/CDKMetadata/Default"
+      }
+    }
+  },
+  "Outputs": {
+    "ExportsOutputFnGetAttmyMainFunction3647C7FEArnE811CF25": {
+      "Value": {
+        "Fn::GetAtt": [
+          "myMainFunction3647C7FE",
+          "Arn"
+        ]
+      },
+      "Export": {
+        "Name": "infrastructure:ExportsOutputFnGetAttmyMainFunction3647C7FEArnE811CF25"
+      }
+    }
+  }
+}

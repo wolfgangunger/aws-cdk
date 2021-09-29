@@ -6,21 +6,21 @@ from aws_cdk import (
 )
 
 
-class JobPollerStack(core.Stack):
-    def __init__(self, app: core.App, id: str, **kwargs) -> None:
+class StepFunctionStack(core.Stack):
+    def __init__(self, app: core.App, id: str, status_lambda,submit_lambda, **kwargs) -> None:
         super().__init__(app, id, **kwargs)
 
         # Lambda Handlers Definitions
 
-        submit_lambda = _lambda.Function(self, 'submitLambda',
-                                         handler='lambda_function.lambda_handler',
-                                         runtime=_lambda.Runtime.PYTHON_3_9,
-                                         code=_lambda.Code.asset('lambdas/submit'))
+        #submit_lambda = _lambda.Function(self, 'submitLambda',
+        #                                 handler='lambda_function.lambda_handler',
+        #                                 runtime=_lambda.Runtime.PYTHON_3_9,
+        #                                 code=_lambda.Code.asset('lambdas/submit'))
 
-        status_lambda = _lambda.Function(self, 'statusLambda',
-                                         handler='lambda_function.lambda_handler',
-                                         runtime=_lambda.Runtime.PYTHON_3_9,
-                                         code=_lambda.Code.asset('lambdas/status'))
+        #status_lambda = _lambda.Function(self, 'statusLambda',
+        #                                 handler='lambda_function.lambda_handler',
+        #                                 runtime=_lambda.Runtime.PYTHON_3_9,
+        #                                 code=_lambda.Code.asset('lambdas/status'))
 
         # Step functions Definition
 
@@ -60,14 +60,14 @@ class JobPollerStack(core.Stack):
 
         # Create Chain
 
-        definition = submit_job.next(wait_job).next(status_job).next(end_job)
+        #definition = submit_job.next(wait_job).next(status_job).next(end_job)
 
-        #definition = submit_job.next(wait_job)\
-        #    .next(status_job)\
-        #    .next(_aws_stepfunctions.Choice(self, 'Job Complete?')
-        #          .when(_aws_stepfunctions.Condition.string_equals('$.status', 'FAILED'), fail_job)
-        #          .when(_aws_stepfunctions.Condition.string_equals('$.status', 'SUCCEEDED'), succeed_job)
-        #          .otherwise(wait_job))
+        definition = submit_job.next(wait_job)\
+            .next(status_job)\
+            .next(_aws_stepfunctions.Choice(self, 'Job Complete?')
+                  .when(_aws_stepfunctions.Condition.string_equals('$.status', 'FAILED'), fail_job)
+                  .when(_aws_stepfunctions.Condition.string_equals('$.status', 'SUCCEEDED'), succeed_job)
+                  .otherwise(wait_job))
 
         # Create state machine
         sm = _aws_stepfunctions.StateMachine(
