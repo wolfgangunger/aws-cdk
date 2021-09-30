@@ -14,10 +14,12 @@ class LambdaStack(core.Stack):
                                          handler='lambda_function.lambda_handler',
                                          runtime=_lambda.Runtime.PYTHON_3_9,
                                          code=_lambda.Code.asset('lambdas/submit'))
+        core.Tags.of(self.submit_lambda).add("Name", "Submit Lambda", priority=300)
 
         self.status_lambda = _lambda.Function(self, 'statusLambda',
                                          handler='lambda_function.lambda_handler',
                                          runtime=_lambda.Runtime.PYTHON_3_9,
                                          code=_lambda.Code.asset('lambdas/status'))
+        core.Tags.of(self.status_lambda).add("Name", "Status Lambda", priority=300)
 
 

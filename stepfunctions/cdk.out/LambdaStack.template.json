@@ -28,6 +28,12 @@
               ]
             ]
           }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "Submit Lambda"
+          }
         ]
       },
       "Metadata": {
@@ -82,7 +88,13 @@
           ]
         },
         "Handler": "lambda_function.lambda_handler",
-        "Runtime": "python3.9"
+        "Runtime": "python3.9",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "Submit Lambda"
+          }
+        ]
       },
       "DependsOn": [
         "submitLambdaServiceRole576DCA8F"
