@@ -299,6 +299,12 @@
                               ]
                             ]
                           }
+                        ],
+                        "tags": [
+                          {
+                            "key": "Name",
+                            "value": "Status Lambda"
+                          }
                         ]
                       }
                     },
@@ -400,7 +406,13 @@
                       ]
                     },
                     "handler": "lambda_function.lambda_handler",
-                    "runtime": "python3.9"
+                    "runtime": "python3.9",
+                    "tags": [
+                      {
+                        "key": "Name",
+                        "value": "Status Lambda"
+                      }
+                    ]
                   }
                 },
                 "constructInfo": {

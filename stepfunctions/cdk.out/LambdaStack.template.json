@@ -133,6 +133,12 @@
               ]
             ]
           }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "Status Lambda"
+          }
         ]
       },
       "Metadata": {
@@ -187,7 +193,13 @@
           ]
         },
         "Handler": "lambda_function.lambda_handler",
-        "Runtime": "python3.9"
+        "Runtime": "python3.9",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "Status Lambda"
+          }
+        ]
       },
       "DependsOn": [
         "statusLambdaServiceRoleD1132168"
