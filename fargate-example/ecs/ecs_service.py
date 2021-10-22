@@ -11,11 +11,11 @@ class ECSService(core.Stack):
     def __init__(self, scope: core.Construct, id: str, vpc, cluster, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
-
+        
 
         fargate_service = ecs_patterns.NetworkLoadBalancedFargateService(
             self, "FargateService",
-            cluster=cluster,
+            cluster=cluster,                
             task_image_options={
                 'image': ecs.ContainerImage.from_registry("amazon/amazon-ecs-sample")
             }
