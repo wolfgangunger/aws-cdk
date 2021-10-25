@@ -12,7 +12,7 @@ class ECSService(core.Stack):
         super().__init__(scope, id, **kwargs)
 
         
-
+        
         fargate_service = ecs_patterns.NetworkLoadBalancedFargateService(
             self, "FargateService",
             cluster=cluster,                
