@@ -76,13 +76,16 @@
         "lambdaContainerFunctionServiceRole5E36DB3C"
       ],
       "Metadata": {
-        "aws:cdk:path": "LambdaContainerFunctionStack/lambdaContainerFunction/Resource"
+        "aws:cdk:path": "LambdaContainerFunctionStack/lambdaContainerFunction/Resource",
+        "aws:asset:path": "asset.d0f816817d8b8f71f7ee6589b186c62d12b5fd1cbd01e398e8c313683c00b582",
+        "aws:asset:dockerfile-path": "Dockerfile",
+        "aws:asset:property": "Code.ImageUri"
       }
     },
     "CDKMetadata": {
       "Type": "AWS::CDK::Metadata",
       "Properties": {
-        "Analytics": "v2:deflate64:H4sIAAAAAAAA/zWNTQ6CMBCFz8K+DKJu3KkYE3emnqCWESu0YzptDGl6dwHj6n3J+6uhXm9hVezVh0vd9lXS5BHSLSjdiwMzhgk74zrRkOPgow6ieTiJTNFrzGIupkHZe6sgnaPTwZCbI3/OwigLSdKAS3PSLFD7Us3rDCfSPfqLVR0uf7MHEt/EJpAfj4oxZ3Edw5NctYEd1MWLjSl9dMFYBPnTL/1zTUTKAAAA"
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/zWNTQ6CMBCFz8K+DBLcuFMxJu5MPUEtI1Zox3TaGNL07gLG1fuS91dD3WxhU+zVh0vdDVXS5BHSLSg9iAMzhhl743rRkuPgow6ifTiJTNFrzGIpplHZe6cgnaPTwZBbIn/OwigLSdKIa3PWLFD7Ui3rDCfSA/qLVT2uf4sHEt/EJpCfjooxZ3GdwpNc1cAO6uLFxpQ+umAsgvzpF9lPxSLKAAAA"
       },
       "Metadata": {
         "aws:cdk:path": "LambdaContainerFunctionStack/CDKMetadata/Default"

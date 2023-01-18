@@ -1,5 +1,5 @@
 {
-  "version": "14.0.0",
+  "version": "15.0.0",
   "artifacts": {
     "Tree": {
       "type": "cdk:tree",
@@ -27,21 +27,20 @@
               "sourceHash": "d0f816817d8b8f71f7ee6589b186c62d12b5fd1cbd01e398e8c313683c00b582"
             },
             "trace": [
-              "ConstructNode.addMetadata (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-o4gw5U\\node_modules\\@aws-cdk\\core\\lib\\construct-compat.js:405:62)",
-              "LegacyStackSynthesizer.doAddDockerImageAsset (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-o4gw5U\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:150:29)",
-              "LegacyStackSynthesizer.addDockerImageAsset (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-o4gw5U\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:105:25)",
-              "Stack.addDockerImageAsset (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-o4gw5U\\node_modules\\@aws-cdk\\core\\lib\\stack.js:434:33)",
-              "LegacyStackSynthesizer.addDockerImageAsset (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-o4gw5U\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:109:31)",
-              "new DockerImageAsset (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-o4gw5U\\node_modules\\@aws-cdk\\aws-ecr-assets\\lib\\image-asset.js:99:44)",
-              "AssetImageCode.bind (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-o4gw5U\\node_modules\\@aws-cdk\\aws-lambda\\lib\\code.js:456:23)",
-              "new Function (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-o4gw5U\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:98:33)",
-              "C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:8367:58",
-              "Kernel._wrapSandboxCode (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:8795:24)",
-              "Kernel._create (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:8367:34)",
-              "Kernel.create (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:8108:29)",
-              "KernelHost.processRequest (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:9692:36)",
-              "KernelHost.run (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:9655:22)",
-              "Immediate._onImmediate (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:9656:46)",
+              "ConstructNode.addMetadata (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-l0EIuo\\node_modules\\@aws-cdk\\core\\lib\\construct-compat.js:416:62)",
+              "LegacyStackSynthesizer.doAddDockerImageAsset (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-l0EIuo\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:155:29)",
+              "LegacyStackSynthesizer.addDockerImageAsset (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-l0EIuo\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:109:25)",
+              "LegacyStackSynthesizer.addDockerImageAsset (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-l0EIuo\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.js:113:43)",
+              "new DockerImageAsset (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-l0EIuo\\node_modules\\@aws-cdk\\aws-ecr-assets\\lib\\image-asset.js:105:44)",
+              "AssetImageCode.bind (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-l0EIuo\\node_modules\\@aws-cdk\\aws-lambda\\lib\\code.js:473:26)",
+              "new Function (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-l0EIuo\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:100:33)",
+              "C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:8432:58",
+              "Kernel._wrapSandboxCode (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:8860:24)",
+              "Kernel._create (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:8432:34)",
+              "Kernel.create (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:8173:29)",
+              "KernelHost.processRequest (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:9757:36)",
+              "KernelHost.run (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:9720:22)",
+              "Immediate._onImmediate (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:9721:46)",
               "processImmediate (internal/timers.js:464:21)"
             ]
           }
@@ -51,15 +50,15 @@
             "type": "aws:cdk:logicalId",
             "data": "lambdaContainerFunctionServiceRole5E36DB3C",
             "trace": [
-              "new Role (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-o4gw5U\\node_modules\\@aws-cdk\\aws-iam\\lib\\role.js:72:22)",
-              "new Function (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-o4gw5U\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:80:35)",
-              "C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:8367:58",
-              "Kernel._wrapSandboxCode (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:8795:24)",
-              "Kernel._create (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:8367:34)",
-              "Kernel.create (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:8108:29)",
-              "KernelHost.processRequest (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:9692:36)",
-              "KernelHost.run (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:9655:22)",
-              "Immediate._onImmediate (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:9656:46)",
+              "new Role (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-l0EIuo\\node_modules\\@aws-cdk\\aws-iam\\lib\\role.js:74:22)",
+              "new Function (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-l0EIuo\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:82:35)",
+              "C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:8432:58",
+              "Kernel._wrapSandboxCode (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:8860:24)",
+              "Kernel._create (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:8432:34)",
+              "Kernel.create (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:8173:29)",
+              "KernelHost.processRequest (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:9757:36)",
+              "KernelHost.run (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:9720:22)",
+              "Immediate._onImmediate (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:9721:46)",
               "processImmediate (internal/timers.js:464:21)"
             ]
           }
@@ -69,14 +68,14 @@
             "type": "aws:cdk:logicalId",
             "data": "lambdaContainerFunction5815FD88",
             "trace": [
-              "new Function (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-o4gw5U\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:136:26)",
-              "C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:8367:58",
-              "Kernel._wrapSandboxCode (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:8795:24)",
-              "Kernel._create (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:8367:34)",
-              "Kernel.create (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:8108:29)",
-              "KernelHost.processRequest (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:9692:36)",
-              "KernelHost.run (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:9655:22)",
-              "Immediate._onImmediate (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:9656:46)",
+              "new Function (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-l0EIuo\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:145:26)",
+              "C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:8432:58",
+              "Kernel._wrapSandboxCode (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:8860:24)",
+              "Kernel._create (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:8432:34)",
+              "Kernel.create (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:8173:29)",
+              "KernelHost.processRequest (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:9757:36)",
+              "KernelHost.run (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:9720:22)",
+              "Immediate._onImmediate (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:9721:46)",
               "processImmediate (internal/timers.js:464:21)"
             ]
           }
@@ -86,21 +85,21 @@
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata",
             "trace": [
-              "new MetadataResource (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-o4gw5U\\node_modules\\@aws-cdk\\core\\lib\\private\\metadata-resource.js:22:30)",
-              "C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-o4gw5U\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:139:9",
-              "visit (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-o4gw5U\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:200:9)",
-              "visit (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-o4gw5U\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:197:9)",
-              "injectMetadataResources (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-o4gw5U\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:128:5)",
-              "Object.synthesize (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-o4gw5U\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:17:5)",
-              "App.synth (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-o4gw5U\\node_modules\\@aws-cdk\\core\\lib\\stage.js:100:41)",
-              "C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:8183:134",
-              "Kernel._wrapSandboxCode (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:8795:24)",
-              "C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:8183:107",
-              "Kernel._ensureSync (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:8776:28)",
-              "Kernel.invoke (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:8183:34)",
-              "KernelHost.processRequest (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:9692:36)",
-              "KernelHost.run (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:9655:22)",
-              "Immediate._onImmediate (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmp2xgecx_k\\lib\\program.js:9656:46)",
+              "new MetadataResource (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-l0EIuo\\node_modules\\@aws-cdk\\core\\lib\\private\\metadata-resource.js:22:30)",
+              "C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-l0EIuo\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:139:9",
+              "visit (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-l0EIuo\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:200:9)",
+              "visit (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-l0EIuo\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:197:9)",
+              "injectMetadataResources (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-l0EIuo\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:128:5)",
+              "Object.synthesize (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-l0EIuo\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:17:5)",
+              "App.synth (C:\\Users\\wolfg\\AppData\\Local\\Temp\\jsii-kernel-l0EIuo\\node_modules\\@aws-cdk\\core\\lib\\stage.js:103:41)",
+              "C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:8248:134",
+              "Kernel._wrapSandboxCode (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:8860:24)",
+              "C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:8248:107",
+              "Kernel._ensureSync (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:8841:28)",
+              "Kernel.invoke (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:8248:34)",
+              "KernelHost.processRequest (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:9757:36)",
+              "KernelHost.run (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:9720:22)",
+              "Immediate._onImmediate (C:\\Users\\wolfg\\AppData\\Local\\Temp\\tmpxdie6e1q\\lib\\program.js:9721:46)",
               "processImmediate (internal/timers.js:464:21)"
             ]
           }

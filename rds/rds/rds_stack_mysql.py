@@ -5,13 +5,13 @@ from aws_cdk import (
 )
 
 
-class RdsStack(core.Stack):
+class RdsStackMySQL(core.Stack):
 
     def __init__(self, scope: core.Construct, construct_id: str, vpc, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
 
-        rds.DatabaseInstance(
+        self.mysql = rds.DatabaseInstance(
             self, "RDS",
             database_name="unw1",
             engine=rds.DatabaseInstanceEngine.mysql(
@@ -25,4 +25,5 @@ class RdsStack(core.Stack):
             ),
             removal_policy=core.RemovalPolicy.DESTROY,
             deletion_protection=False
-        ),
+        )
+

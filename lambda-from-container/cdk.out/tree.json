@@ -9,7 +9,7 @@
         "path": "Tree",
         "constructInfo": {
           "fqn": "@aws-cdk/core.Construct",
-          "version": "1.124.0"
+          "version": "1.134.0"
         }
       },
       "LambdaContainerFunctionStack": {
@@ -60,13 +60,13 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-iam.CfnRole",
-                      "version": "1.124.0"
+                      "version": "1.134.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-iam.Role",
-                  "version": "1.124.0"
+                  "version": "1.134.0"
                 }
               },
               "AssetImage": {
@@ -78,7 +78,7 @@
                     "path": "LambdaContainerFunctionStack/lambdaContainerFunction/AssetImage/Staging",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.AssetStaging",
-                      "version": "1.124.0"
+                      "version": "1.134.0"
                     }
                   },
                   "Repository": {
@@ -86,13 +86,13 @@
                     "path": "LambdaContainerFunctionStack/lambdaContainerFunction/AssetImage/Repository",
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ecr.RepositoryBase",
-                      "version": "1.124.0"
+                      "version": "1.134.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-ecr-assets.DockerImageAsset",
-                  "version": "1.124.0"
+                  "version": "1.134.0"
                 }
               },
               "Resource": {
@@ -139,13 +139,13 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-lambda.CfnFunction",
-                  "version": "1.124.0"
+                  "version": "1.134.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/aws-lambda.Function",
-              "version": "1.124.0"
+              "version": "1.134.0"
             }
           },
           "CDKMetadata": {
@@ -157,25 +157,25 @@
                 "path": "LambdaContainerFunctionStack/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.CfnResource",
-                  "version": "1.124.0"
+                  "version": "1.134.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/core.Construct",
-              "version": "1.124.0"
+              "version": "1.134.0"
             }
           }
         },
         "constructInfo": {
           "fqn": "@aws-cdk/core.Stack",
-          "version": "1.124.0"
+          "version": "1.134.0"
         }
       }
     },
     "constructInfo": {
       "fqn": "@aws-cdk/core.App",
-      "version": "1.124.0"
+      "version": "1.134.0"
     }
   }
 }
